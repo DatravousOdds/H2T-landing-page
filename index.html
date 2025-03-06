@@ -45,14 +45,14 @@
             <li><a href="#">About</a></li>
           </ul>
         </nav>
-        <button class="btn-primary">JOIN WAITLIST</button>
+        <button id="nav-waitlistBtn" class="btn-primary">join waitlist</button>
       </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
       <!-- Hero content will go here -->
-      <div class="hero-content">
+      <div class="hero-content plus-pattern-dark">
         <div class="hero-content-left">
           <h1 class="main-headline">
             The All-In-One Platform for Sneaker and Vintage Enthusiasts
@@ -61,7 +61,14 @@
             Buy, sell, authenticate, and restore - everything sneaker resellers
             need in one place. Launching April 17th.
           </h2>
-          <button class="btn-primary">Notify Me</button>
+          <form action="#" id="waitlistForm" class="email-input">
+            <input
+              type="text"
+              class="waitlist-input"
+              placeholder="Enter email here..."
+            />
+            <button type="submit" class="btn-waitlist">join waitlist</button>
+          </form>
         </div>
         <div class="hero-content-right">
           <img
@@ -81,6 +88,34 @@
           />
         </div>
       </div>
+
+      <!-- waitlist modal -->
+      <div class="waitlist-modal">
+        <div class="wrapper">
+          <div class="completed-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+        </div>
+        <div class="message">
+          <h3>You're on the list</h3>
+          <p>
+            Thank you for joining the H2T waitlist! We'll notify you when we
+            launch on April 17th.
+          </p>
+          <div class="socials">
+            <div class="social-container">
+              <i class="fa-brands fa-x-twitter"></i>
+            </div>
+            <div class="social-container">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="social-container">
+              <i class="fa-brands fa-github"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- waitlist modal END -->
     </section>
 
     <!-- Product Categories Section -->
@@ -322,15 +357,21 @@
     <!-- CTA Section -->
     <section class="cta">
       <!-- Call-to-action content will go here -->
-      <div class="container">
+      <div class="container plus-pattern-dark">
         <h2 class="section-header">Be Ready for Launch</h2>
         <p class="section-subheader">
           Signup now to receive exclusive access and special offers
         </p>
 
         <div class="email-input">
-          <input type="email" placeholder="enter your email..." class="waitlist-input">
-          <button class="btn-primary">join waitlist</button>
+          <form action="#" id="cta-waitlistForm" class="email-input">
+            <inputs
+              type="text"
+              class="cta-waitlist-input"
+              placeholder="Enter email here..."
+            />
+            <buttin class="btn-waitlist">join waitlist</buttin>
+          </form>
         </div>
       </div>
     </section>
