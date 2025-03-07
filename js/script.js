@@ -3,40 +3,51 @@ console.log("Hello World");
 const waitlistForm = document.getElementById("waitlistForm");
 const ctaWaitlistForm = document.getElementById("cta-waitlistForm");
 const navWaitlistBtn = document.getElementById("nav-waitlistBtn");
+const closeModalBtn = document.querySelector(".close-modal");
+const waitlistModal = document.querySelector(".waitlist-modal");
+const modalOverlay = document.querySelector(".modal-overlay");
 
 const ctaWaitlistInput = document.querySelector(".cta-waitlist-input");
 const waitlistFormInput = document.querySelector(".waitlist-input");
 
-// Testing
-console.log(waitlistForm);
-console.log(ctaWaitlistForm);
-console.log(navWaitlistBtn);
-
 // Event Listeners
-if (waitlistForm)
-  waitlistForm.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("Hero section waitlist button was clicked");
-    if (!waitlistFormInput.value) {
-      console.log("No Input was entered");
-    }
-  });
 
-if (ctaWaitlistForm)
-  ctaWaitlistForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log("Cta section waitlist button was clicked");
-  });
-
-if (navWaitlistBtn)
-  navWaitlistBtn.addEventListener("click", () => {
-    console.log("Sending you to the form to join the waitlist please wait...");
-  });
-
-ctaWaitlistInput.addEventListener("input", () => {
-  console.log(ctaWaitlistInput.value);
+// Close modal
+closeModalBtn.addEventListener("click", () => {
+  waitlistModal.classList.add("modal-show");
+  modalOverlay.classList.remove("modal-show");
+  document.body.classList.remove("no-scroll");
 });
 
-waitlistFormInput.addEventListener("input", () => {
-  console.log(waitlistFormInput.value);
+// Here waitlist form
+waitlistForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const email = this.querySelector('input[type="email"]').value;
+  console.log("Here is the email that was entered", email);
+
+  if (await window.submitToFirebase(email)) {
+    // Show success modal
+    modalOverlay.classList.add("modal-show");
+    waitlistModal.classList.add("modal-show");
+    document.body.classList.add("no-scroll");
+  } else {
+    alert("There was an error. Please try again.");
+  }
+});
+
+ctaWaitlistForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const email = this.querySelector('input[type="email"]').value;
+  console.log("Here is the email that was entered", email);
+
+  if (await window.submitToFirebase(email)) {
+    // Show success modal
+    modalOverlay.classList.add("modal-show");
+    waitlistModal.classList.add("modal-show");
+    document.body.classList.add("no-scroll");
+  } else {
+    alert("There was an error. Please try again.");
+  }
 });

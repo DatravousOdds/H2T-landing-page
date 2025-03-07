@@ -39,8 +39,8 @@
 
         <nav>
           <ul class="nav-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#">Products</a></li>
             <li><a href="#">About</a></li>
           </ul>
@@ -63,7 +63,7 @@
           </h2>
           <form action="#" id="waitlistForm" class="email-input">
             <input
-              type="text"
+              type="email"
               class="waitlist-input"
               placeholder="Enter email here..."
             />
@@ -90,31 +90,42 @@
       </div>
 
       <!-- waitlist modal -->
-      <div class="waitlist-modal">
-        <div class="wrapper">
-          <div class="completed-icon">
-            <i class="fa-solid fa-circle-check"></i>
-          </div>
-        </div>
-        <div class="message">
-          <h3>You're on the list</h3>
-          <p>
-            Thank you for joining the H2T waitlist! We'll notify you when we
-            launch on April 17th.
-          </p>
-          <div class="socials">
-            <div class="social-container">
-              <i class="fa-brands fa-x-twitter"></i>
+      <div class="modal-overlay">
+        <div class="waitlist-modal">
+          <div class="modal-content">
+            <button class="close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="completed-icon">
+              <i class="fa-solid fa-envelope-circle-check"></i>
             </div>
-            <div class="social-container">
-              <i class="fa-brands fa-instagram"></i>
-            </div>
-            <div class="social-container">
-              <i class="fa-brands fa-github"></i>
+
+            <div class="message">
+              <h3>You're on the list</h3>
+              <p>
+                Thank you for joining the H2T waitlist! We'll notify you when we
+                launch on April 17th.
+              </p>
+              <div class="socials">
+                <p class="follow-text">Follow us for updates:</p>
+                <div class="social-icons">
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       <!-- waitlist modal END -->
     </section>
 
@@ -349,7 +360,7 @@
           affordable prices.
         </p>
         <div class="img-container">
-          <img src="images/products/s-l1600.webp" alt="" />
+          <img src="#" alt="" />
         </div>
       </div>
     </section>
@@ -357,7 +368,7 @@
     <!-- CTA Section -->
     <section class="cta">
       <!-- Call-to-action content will go here -->
-      <div class="container plus-pattern-dark">
+      <div class="container">
         <h2 class="section-header">Be Ready for Launch</h2>
         <p class="section-subheader">
           Signup now to receive exclusive access and special offers
@@ -365,12 +376,12 @@
 
         <div class="email-input">
           <form action="#" id="cta-waitlistForm" class="email-input">
-            <inputs
-              type="text"
+            <input
+              type="email"
               class="cta-waitlist-input"
-              placeholder="Enter email here..."
+              placeholder="Your email here..."
             />
-            <buttin class="btn-waitlist">join waitlist</buttin>
+            <button class="btn-waitlist">join waitlist</button>
           </form>
         </div>
       </div>
@@ -382,6 +393,41 @@
     </footer>
 
     <!-- JavaScript -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
+        authDomain: "h2t-landing-page.firebaseapp.com",
+        projectId: "h2t-landing-page",
+        storageBucket: "h2t-landing-page.firebasestorage.app",
+        messagingSenderId: "361648021013",
+        appId: "1:361648021013:web:04db1c37588871b0e8781c",
+        measurementId: "G-3KZ75T2MYM",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const analytics = getAnalytics(app);
+
+      window.submitToFirebase = async function (email) {
+        try {
+          await addDoc(collection(db, "waitlist"), {
+            email: email,
+            date: new Date(),
+          });
+          return true;
+        } catch (e) {
+          console.error("error adding document:", e);
+          return false;
+        }
+      };
+    </script>
     <script src="js/script.js"></script>
   </body>
 </html>
