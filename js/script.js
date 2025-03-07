@@ -14,7 +14,7 @@ const waitlistFormInput = document.querySelector(".waitlist-input");
 
 // Close modal
 closeModalBtn.addEventListener("click", () => {
-  waitlistModal.classList.add("modal-show");
+  waitlistModal.classList.remove("modal-show");
   modalOverlay.classList.remove("modal-show");
   document.body.classList.remove("no-scroll");
 });

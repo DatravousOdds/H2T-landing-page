@@ -452,7 +452,7 @@ header {
 }
 .features-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
   padding: 2rem;
   max-width: 1200px;
@@ -460,7 +460,7 @@ header {
 }
 
 .feature-card {
-  background: linear-gradient(to bottom, #0a1a2a, #000000);
+  background-color: #282828;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -490,7 +490,7 @@ header {
 }
 
 .feature-icon {
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+  background-color: transparent; /* Subtle background */
   border-radius: 50%; /* Circular background */
   width: 60px;
   height: 60px;
@@ -501,7 +501,7 @@ header {
 
 .feature-icon i {
   font-size: 2rem;
-  color: #215588;
+  color: white;
 }
 
 .cta .container {
