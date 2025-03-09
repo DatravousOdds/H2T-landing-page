@@ -460,7 +460,8 @@ header {
 }
 
 .feature-card {
-  background-color: #282828;
+  /* background-color: #282828; */
+  background: linear-gradient(180deg, #545454 0%, #1e1e1e 100%);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -515,8 +516,8 @@ header {
 }
 
 .waitlist-input {
-  padding: 1rem;
-  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
   border: 1px solid #d0d0d0;
   width: 100%;
   font-family: "Poppins", sans-serif;
@@ -536,6 +537,49 @@ header {
   background-color: var(--primary-white);
   color: var(--dark-gray);
   transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* navbar modal waitlist */
+.navbar-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 99998;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease visibility 0.3s ease;
+}
+
+.navbar-waitlist-form {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.waitlist-navbar-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  width: 500px;
+  height: 500px;
+  max-width: 90%;
+  border: 1px solid #eeeeee;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.15);
+  z-index: 99999;
+  background-color: white;
+  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* waitlist modal */
@@ -604,6 +648,9 @@ header {
   font-size: 2rem;
   color: var(--primary-red);
   transition: color 0.2s ease;
+  border-radius: 8px;
+  padding: 4px 14px;
+  border: 1px solid var(--primary-red);
 }
 
 .mod .waitlist-input:focus {
@@ -630,6 +677,18 @@ header {
   color: var(--primary-white);
 }
 
+.waitlist-navbar-modal .close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.2rem;
+  background: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -638,6 +697,8 @@ header {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 99998;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease visibility 0.3s ease;
@@ -646,11 +707,19 @@ header {
 .modal-overlay.modal-show {
   visibility: visible;
   opacity: 1;
+  backdrop-filter: blur(5px);
 }
 
 .waitlist-modal.modal-show {
   opacity: 1;
   visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.navbar-modal-overlay.modal-show {
+  visibility: visible;
+  opacity: 1;
+  backdrop-filter: blur(5px);
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -677,6 +746,19 @@ body.no-scroll {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+}
+
+/* Request access button */
+.request-access-btn {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  border: none;
+  color: white;
+  background-color: var(--primary-red);
 }
 
 .btn-waitlist {

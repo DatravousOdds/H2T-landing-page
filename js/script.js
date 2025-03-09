@@ -6,6 +6,8 @@ const navWaitlistBtn = document.getElementById("nav-waitlistBtn");
 const closeModalBtn = document.querySelector(".close-modal");
 const waitlistModal = document.querySelector(".waitlist-modal");
 const modalOverlay = document.querySelector(".modal-overlay");
+const navbarModalOverlay = document.querySelector(".navbar-modal-overlay");
+const navbarModal = document.querySelector(".waitlist-navbar-modal");
 
 const ctaWaitlistInput = document.querySelector(".cta-waitlist-input");
 const waitlistFormInput = document.querySelector(".waitlist-input");
@@ -36,6 +38,7 @@ waitlistForm.addEventListener("submit", async function (e) {
   }
 });
 
+// CTA waitlist form
 ctaWaitlistForm.addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -50,4 +53,10 @@ ctaWaitlistForm.addEventListener("submit", async function (e) {
   } else {
     alert("There was an error. Please try again.");
   }
+});
+
+navWaitlistBtn.addEventListener("click", () => {
+  console.log("click");
+  navbarModalOverlay.classList.add("modal-display");
+  navbarModal.classList.add("modal-show");
 });
