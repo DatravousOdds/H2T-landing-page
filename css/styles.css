@@ -49,29 +49,10 @@ h6 {
 
 /* Plus pattern for dark backgrounds */
 .plus-pattern-dark {
-  /* position: relative; */
+  position: relative;
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.0'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-
-/* .plus-pattern-dark::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.2) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
-  background-size: 20px 20px;
-  background-position: center;
-  pointer-events: none;
-  z-index: 0;
-} */
 
 .plus-pattern-dark::after {
   content: "";
@@ -113,7 +94,6 @@ header {
   max-width: 1990px;
   margin: 0 auto;
   height: 100%;
-  /* width: 100%; */
 }
 
 .logo img {
@@ -203,6 +183,7 @@ header {
   color: var(--primary-white);
   border: none;
   border-radius: 4px;
+  font-size: 1rem;
   padding: 12px 24px;
   font-weight: 600;
   text-transform: uppercase;
@@ -275,6 +256,10 @@ header {
   line-height: 1.5rem;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.product-categories .container {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 100%);
 }
 
 .container {
@@ -376,7 +361,7 @@ header {
   overflow: hidden;
   position: relative;
   background-color: transparent; /* Match the section background */
-  border-radius: none; /* Ensure no rounded corners */
+  border-radius: 0; /* Ensure no rounded corners */
 }
 
 /* For the scrolling effect */
@@ -388,16 +373,17 @@ header {
   width: 100px;
   height: 100%;
   z-index: 2;
+  pointer-events: none;
 }
 
 .brands-carousel::before {
   left: 0;
-  background: linear-gradient(to right, transparent);
+  background: linear-gradient(to right, rgb(250 250 250), transparent);
 }
 
 .brands-carousel::after {
   right: 0;
-  background: linear-gradient(to left, transparent);
+  background: linear-gradient(to left, rgb(250 250 250), transparent);
 }
 
 .brand-item {
@@ -418,13 +404,19 @@ header {
   object-fit: contain;
 }
 
+/* About Section */
+
+.about .container {
+  background: linear-gradient(to right, #ffffff 0%, #fffaf9 100%);
+}
+
 /* For the animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
@@ -434,16 +426,23 @@ header {
   animation: scroll 30s linear infinite;
 }
 
+.brands-scroll-content {
+  display: flex;
+  animation: none;
+}
 .brands-subsection {
   padding: 3rem 0;
   width: 100%;
   text-align: center;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 50px 50px;
 }
 
 /* Features Section */
 
 .features .container {
   background: var(--dark-black);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .features .section-header,
@@ -453,35 +452,43 @@ header {
 .features-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem;
-  padding: 2rem;
+  gap: 2rem;
+  padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .feature-card {
   /* background-color: #282828; */
-  background: linear-gradient(180deg, #545454 0%, #1e1e1e 100%);
+  background: linear-gradient(
+    145deg,
+    rgba(70, 70, 70, 0.8) 0%,
+    rgba(40, 40, 40, 0.8) 100%
+  );
   border-radius: 8px;
   display: flex;
   align-items: center;
   flex-direction: column;
   text-align: center;
   gap: 1rem;
-  padding: 1.5rem 1rem;
+  border-top: 2px solid var(--primary-red);
+  padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .feature-title {
   color: var(--primary-white);
-  font-size: 14px;
+  font-size: 1.2rem;
   line-height: 1.4;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
 .feature-text {
@@ -502,12 +509,15 @@ header {
 
 .feature-icon i {
   font-size: 2rem;
-  color: white;
+  color: var(--primary-red);
 }
 
 .cta .container {
   background-color: transparent;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.14'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+    var(--brand-blackToDark);
+  background-size: 500px 500px 100% 100%;
 }
 
 .cta .section-header,
@@ -516,8 +526,8 @@ header {
 }
 
 .waitlist-input {
-  padding: 1rem 1.5rem;
-  border-radius: 1rem;
+  padding: 0.875rem;
+  border-radius: 4px;
   border: 1px solid #d0d0d0;
   width: 100%;
   font-family: "Poppins", sans-serif;
@@ -767,6 +777,7 @@ body.no-scroll {
   border-radius: 4px;
   background: var(--red-to-darkRed);
   border: none;
+  font-size: 17px;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   font-weight: 600;

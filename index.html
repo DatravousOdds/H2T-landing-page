@@ -65,7 +65,7 @@
             <input
               type="email"
               class="waitlist-input"
-              placeholder="Enter email here..."
+              placeholder="Your email here..."
             />
             <button type="submit" class="btn-waitlist">join waitlist</button>
           </form>
@@ -255,65 +255,88 @@
           <h2 class="section-header">Brands We Support</h2>
           <div class="brands-carousel">
             <div class="brands-scroll">
-              <!-- Brand 1-->
-              <div class="brand-item">
-                <img
-                  src="images/brands/jordan-removebg-preview.png"
-                  class="brand-img"
-                />
+              <div class="brands-scroll-content">
+                <div class="brand-item">
+                  <img
+                    src="images/brands/jordan-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/louisVuitton-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/fendi-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
               </div>
-              <div class="brand-item">
-                <img
-                  src="images/brands/louisVuitton-removebg-preview.png"
-                  class="brand-img"
-                />
+              <div class="brands-scroll-content">
+                <div class="brand-item">
+                  <img
+                    src="images/brands/jordan-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/louisVuitton-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/fendi-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
               </div>
-              <div class="brand-item">
-                <img
-                  src="images/brands/fendi-removebg-preview.png"
-                  class="brand-img"
-                />
+              <div class="brands-scroll-content">
+                <div class="brand-item">
+                  <img
+                    src="images/brands/jordan-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/louisVuitton-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/fendi-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
               </div>
-
-              <div class="brand-item">
-                <img
-                  src="images/brands/jordan-removebg-preview.png"
-                  class="brand-img"
-                />
+              <div class="brands-scroll-content">
+                <div class="brand-item">
+                  <img
+                    src="images/brands/jordan-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/louisVuitton-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
+                <div class="brand-item">
+                  <img
+                    src="images/brands/fendi-removebg-preview.png"
+                    class="brand-img"
+                  />
+                </div>
               </div>
-              <div class="brand-item">
-                <img
-                  src="images/brands/louisVuitton-removebg-preview.png"
-                  class="brand-img"
-                />
-              </div>
-              <div class="brand-item">
-                <img
-                  src="images/brands/fendi-removebg-preview.png"
-                  class="brand-img"
-                />
-              </div>
-
-              <div class="brand-item">
-                <img
-                  src="images/brands/jordan-removebg-preview.png"
-                  class="brand-img"
-                />
-              </div>
-              <div class="brand-item">
-                <img
-                  src="images/brands/louisVuitton-removebg-preview.png"
-                  class="brand-img"
-                />
-              </div>
-              <div class="brand-item">
-                <img
-                  src="images/brands/fendi-removebg-preview.png"
-                  class="brand-img"
-                />
-              </div>
+              <!-- Additional brand items-->
             </div>
-            <!-- Additional brand items-->
           </div>
         </div>
       </div>
@@ -387,11 +410,6 @@
             </p>
           </div>
         </div>
-        <div class="scroll-dots">
-          <div class="dot">.</div>
-          <div class="dot">.</div>
-          <div class="dot">.</div>
-        </div>
       </div>
     </section>
 
@@ -446,7 +464,7 @@
       import {
         getFirestore,
         collection,
-        addDoc
+        addDoc,
       } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
@@ -455,7 +473,7 @@
         storageBucket: "h2t-landing-page.firebasestorage.app",
         messagingSenderId: "361648021013",
         appId: "1:361648021013:web:04db1c37588871b0e8781c",
-        measurementId: "G-3KZ75T2MYM"
+        measurementId: "G-3KZ75T2MYM",
       };
 
       const app = initializeApp(firebaseConfig);
@@ -466,7 +484,7 @@
         try {
           await addDoc(collection(db, "waitlist"), {
             email: email,
-            date: new Date()
+            date: new Date(),
           });
           return true;
         } catch (e) {
