@@ -119,7 +119,7 @@
       <div class="navbar-modal-overlay">
         <div class="waitlist-navbar-modal">
           <div class="modal-content">
-            <button class="close-modal">
+            <button class="navbar-close-btn">
               <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="completed-icon">
@@ -136,11 +136,15 @@
               <form id="navbar-waitlist-form" class="navbar-waitlist-form">
                 <input
                   type="email"
-                  class="waitlist-input"
+                  class="navbar-email-input"
                   id="navbar-email-input"
                   placeholder="Your email address"
                 />
-                <button id="request-access-btn" class="request-access-btn">
+                <button
+                  type="submit"
+                  id="request-access-btn"
+                  class="request-access-btn"
+                >
                   Request Access
                 </button>
               </form>
@@ -361,7 +365,10 @@
             <div class="feature-icon"><i class="fa-solid fa-soap"></i></div>
             <div class="feature-title">Cleaning Services</div>
             <p class="feature-text">
-              Feature description goes here... explain the benefits to users.
+              We provide professional sneaker cleaning services designed to
+              bring your favorite kicks back to life. Each pair is meticulously
+              restored to the best of our ability, ensuring your sneakers look
+              their best.
             </p>
           </div>
           <div class="feature-card">
@@ -370,7 +377,10 @@
             </div>
             <div class="feature-title">Fast Shipping</div>
             <p class="feature-text">
-              Feature description goes here... explain the benefits to users.
+              We pride ourselves on quick, reliable shipping to get your
+              purchases to you as soon as possible. Whether it's freshly cleaned
+              sneakers, vintage collectibles, or other unique items, our
+              efficient processing system ensures minimal transit time.
             </p>
           </div>
           <div class="feature-card">
@@ -379,7 +389,10 @@
             </div>
             <div class="feature-title">Trading</div>
             <p class="feature-text">
-              Feature description goes here... explain the benefits to users.
+              Our seamless trading platform connects enthusiasts looking to
+              exchange their valuable items. Trade sneakers, vintage
+              collectibles, and rare finds with other passionate collectors in
+              our trusted marketplace.
             </p>
           </div>
           <div class="feature-card">
@@ -388,7 +401,10 @@
             </div>
             <div class="feature-title">Authentication</div>
             <p class="feature-text">
-              Feature description goes here... explain the benefits to users.
+              Our expert authentication process verifies the legitimacy of items
+              in our marketplace, giving you confidence in every transaction. We
+              carefully examine each product using proven techniques and
+              industry knowledge.
             </p>
           </div>
           <div class="feature-card">
@@ -397,7 +413,10 @@
             </div>
             <div class="feature-title">Low Fees</div>
             <p class="feature-text">
-              Feature description goes here... explain the benefits to users.
+              We believe in transparent pricing and keeping more money in your
+              pocket. Our fee structure is designed to be competitive and
+              straightforward, making our platform an affordable choice for
+              buyers and sellers alike.
             </p>
           </div>
           <div class="feature-card">
@@ -406,9 +425,25 @@
             </div>
             <div class="feature-title">Sell To Us</div>
             <p class="feature-text">
-              Feature description goes here... explain the benefits to users.
+              Got unwanted sneakers or collectibles? Skip the hassle of private
+              sales and sell directly to us for quick cash. Our Sell-to-Us
+              service offers a convenient, reliable way to convert your items
+              into immediate funds.
             </p>
           </div>
+        </div>
+      </div>
+
+      <!-- Email Input Error Modal -->
+      <div class="email-error-modal">
+        <div class="error-modal-content">
+          <button class="error-msg-close-btn">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="error-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <div class="error-message">Please enter your email address</div>
         </div>
       </div>
     </section>
@@ -424,8 +459,9 @@
           We’re passionate about bringing you authentic footwear adn apparel at
           affordable prices.
         </p>
+
         <div class="img-container">
-          <img src="#" alt="" />
+          <img src="./images/connor-houtman-0_aAhxoXOSo-unsplash.jpg" alt="" />
         </div>
       </div>
     </section>
@@ -446,7 +482,7 @@
               class="cta-waitlist-input"
               placeholder="Your email here..."
             />
-            <button class="btn-waitlist">join waitlist</button>
+            <button type="submit" class="btn-waitlist">join waitlist</button>
           </form>
         </div>
       </div>
@@ -465,6 +501,8 @@
         getFirestore,
         collection,
         addDoc,
+        getDocs,
+        deleteDoc
       } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
@@ -473,7 +511,7 @@
         storageBucket: "h2t-landing-page.firebasestorage.app",
         messagingSenderId: "361648021013",
         appId: "1:361648021013:web:04db1c37588871b0e8781c",
-        measurementId: "G-3KZ75T2MYM",
+        measurementId: "G-3KZ75T2MYM"
       };
 
       const app = initializeApp(firebaseConfig);
@@ -484,7 +522,7 @@
         try {
           await addDoc(collection(db, "waitlist"), {
             email: email,
-            date: new Date(),
+            date: new Date()
           });
           return true;
         } catch (e) {
