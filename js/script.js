@@ -107,3 +107,120 @@ navWaitlistBtn.addEventListener("click", () => {
   navbarModalOverlay.classList.add("modal-show");
   navbarModal.classList.add("modal-show");
 });
+
+// Parallax scrolling effect for the about section
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Only if initialize if we have parallax elements
+//   const parallaxLayers = document.querySelectorAll(".parallax-layer");
+//   if (parallaxLayers.length === 0) return;
+
+//   function handleParallax() {
+//     const scrollTop = window.pageYOffset;
+
+//     const section = document.querySelector(".parallax-section");
+//     if (!section) return;
+
+//     const sectionTop = section.getBoundingClientRect().top + scrollTop;
+//     const sectionHeight = section.offsetHeight;
+
+//     if (
+//       scrollTop + window.innerHeight > sectionTop &&
+//       scrollTop < sectionTop + sectionHeight
+//     ) {
+//       const relativeScroll = scrollTop - sectionTop;
+
+//       parallaxLayers.forEach((layer) => {
+//         const speed = parseFloat(layer.getAttribute("data-speed") || 0);
+//         const yOffset = relativeScroll * speed;
+//         layer.style.transform = `translateY("${yOffset}px)`;
+//       });
+//     }
+//   }
+
+//   function debounce(func, wait = 10, immediate = true) {
+//     let timeout;
+//     return function () {
+//       const context = this,
+//         args = arguments;
+//       const later = function () {
+//         timeout = null;
+//         if (!immediate) func.apply(context, args);
+//       };
+//       const callNow = immediate && !timeout;
+//       clearTimeout(timeout);
+//       timeout = setTimeout(later, wait);
+//       if (callNow) func.apply(context, args);
+//     };
+//   }
+
+//   // add scroll event listener
+//   window.addEventListener("scroll", debounce(handleParallax));
+
+//   // init call
+//   handleParallax();
+// });
+
+// Scroll reveal functionality
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM loaded, initializing reveal effect");
+  // Elements to reveal (products and brands)
+  const productCards = document.querySelectorAll(".product-card");
+  const brandItems = document.querySelectorAll(".brand-item");
+  const featureCards = document.querySelectorAll(".feature-card");
+
+  // Add the reveal class to all elements we want to animate
+  productCards.forEach((card) => {
+    card.classList.add("reveal");
+  });
+
+  brandItems.forEach((item) => {
+    item.classList.add("reveal");
+  });
+
+  featureCards.forEach((item) => {
+    item.classList.add("reveal");
+  });
+
+  // Check if element is in viewport
+  function isInViewport(element) {
+    if (!element) return false;
+
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <=
+        (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+      rect.bottom >= 0
+    );
+  }
+
+  // Reveal elements that are in viewport
+  function revealElements() {
+    console.log("Running reveal check");
+    console.log("Product cards found:", productCards.length);
+
+    productCards.forEach((card) => {
+      if (isInViewport(card)) {
+        console.log("Product card in viewport");
+        card.classList.add("show");
+      }
+    });
+
+    brandItems.forEach((item) => {
+      if (isInViewport(item)) {
+        item.classList.add("show");
+      }
+    });
+
+    featureCards.forEach((item) => {
+      if (isInViewport(item)) {
+        item.classList.add("show");
+      }
+    });
+  }
+
+  // Listen for scroll
+  window.addEventListener("scroll", revealElements);
+
+  // Initial check (in case elements are already in viewport)
+  revealElements();
+});

@@ -187,7 +187,7 @@
         </p>
         <div class="products-grid">
           <!-- Product Card 1 -->
-          <div class="product-card">
+          <div class="product-card reveal">
             <div class="product-image-container">
               <img
                 src="./images/products/shoes.jpeg"
@@ -210,13 +210,17 @@
             <div class="value-price">Value Price: $450</div>
           </div>
           <!-- Product Card 2-->
-          <div class="product-card">
+          <div class="product-card reveal">
             <div class="product-image-container">
               <img
                 src="images/products/s-l1600.webp"
                 alt=""
                 class="product-img"
               />
+              <div class="price-change up">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                +$1
+              </div>
             </div>
             <div class="product-details">
               <p class="product-name">Product Name</p>
@@ -226,15 +230,20 @@
               <p class="product-price">$350</p>
               <span class="discount">20% OFF</span>
             </div>
+            <div class="value-price">Value Price: $450</div>
           </div>
           <!-- Product Card 3-->
-          <div class="product-card">
+          <div class="product-card reveal">
             <div class="product-image-container">
               <img
                 src="images/products/s-l1601.webp"
                 alt=""
                 class="product-img"
               />
+              <div class="price-change down">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+                -$10
+              </div>
             </div>
             <div class="product-details">
               <p class="product-name">Product Name</p>
@@ -244,15 +253,20 @@
               <p class="product-price">$350</p>
               <span class="discount">20% OFF</span>
             </div>
+            <div class="value-price">Value Price: $450</div>
           </div>
           <!-- Product Card 4-->
-          <div class="product-card">
+          <div class="product-card reveal">
             <div class="product-image-container">
               <img
                 src="images/products/s-l500.webp"
                 alt=""
                 class="product-img"
               />
+              <div class="price-change down">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+                -$15
+              </div>
             </div>
             <div class="product-details">
               <p class="product-name">Product Name</p>
@@ -262,6 +276,7 @@
               <p class="product-price">$350</p>
               <span class="discount">20% OFF</span>
             </div>
+            <div class="value-price">Value Price: $450</div>
           </div>
         </div>
         <div class="brands-subsection">
@@ -283,7 +298,7 @@
                     class="brand-img"
                   />
                 </div>
-                <div class="brand-item">
+                <div class="brand-item reveal">
                   <img
                     src="images/brands/fendi-removebg-preview.png"
                     class="brand-img"
@@ -460,10 +475,10 @@
     </section>
 
     <!-- About Section -->
-    <section class="about">
+    <section class="about parallax-section">
       <!-- About content will go here -->
-      <div class="container">
-        <div class="section-header-wrapper">
+      <div class="container parallax-container">
+        <div class="section-header-wrapper parallax-layer" data-speed="0.1">
           <h2 class="section-header">About Head-To-Toe</h2>
           <div class="separator"></div>
           <p class="section-subheader">
@@ -474,7 +489,7 @@
 
         <!-- Two Column Layout -->
         <div class="content-wrapper">
-          <div class="image-grid">
+          <div class="image-grid parallax-layer" data-speed="0.3">
             <!-- Image Gallery Here -->
             <div class="img-container">
               <img src="./images/products/arshoes.jpeg" alt="" />
@@ -503,7 +518,7 @@
           </div>
         </div>
 
-        <div class="about-content">
+        <div class="about-content parallax-layer" data-speed="0.2">
           <h3>Our Mission</h3>
           <p>
             At Head-To-Toe, we're passionate about bringing you authentic
