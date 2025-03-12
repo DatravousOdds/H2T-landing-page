@@ -108,7 +108,6 @@ navWaitlistBtn.addEventListener("click", () => {
   navbarModal.classList.add("modal-show");
 });
 
-// Parallax scrolling effect for the about section
 // document.addEventListener("DOMContentLoaded", function () {
 //   // Only if initialize if we have parallax elements
 //   const parallaxLayers = document.querySelectorAll(".parallax-layer");
@@ -223,4 +222,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial check (in case elements are already in viewport)
   revealElements();
+});
+
+// small menu navigation
+const navLinks = document.querySelectorAll(".nav-menu li");
+console.log("all nav links:", navLinks);
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+console.log(hamburgerMenu);
+const navMenu = document.querySelector(".nav-menu");
+
+// when hamburger menu is clicked open
+hamburgerMenu.addEventListener("click", () => {
+  navMenu.classList.add("active");
+});
+
+// When nav link is clicked remove menu
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+  });
+});
+
+// When menu is clicked outside
+document.addEventListener("click", (e) => {
+  if (!navMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+    navMenu.classList.remove("active");
+  }
 });

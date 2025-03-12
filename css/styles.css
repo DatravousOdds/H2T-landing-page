@@ -1078,6 +1078,10 @@ body.no-scroll {
 .btn-waitlist:hover {
   background-color: #ba0b0b;
 }
+
+.hamburger-menu {
+  display: none;
+}
 /* For responsive design */
 @media (min-width: 1200px) {
 }
@@ -1090,6 +1094,62 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
+  /* Navbar */
+
+  .btn-primary {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .hamburger-menu .icon-container {
+    color: white;
+    font-size: 2rem;
+  }
+
+  .nav-menu {
+    top: 80px;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 9999;
+    padding: 1.5rem;
+    background-color: black;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .nav-menu li a:hover {
+    background-color: var(--primary-red);
+    color: white;
+  }
+
   .parallax-container {
     perspective: 800px;
   }
