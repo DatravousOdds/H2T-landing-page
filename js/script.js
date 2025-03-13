@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 const waitlistForm = document.getElementById("waitlistForm");
 const ctaWaitlistForm = document.getElementById("cta-waitlistForm");
 const navbarWaitlistForm = document.getElementById("navbar-waitlist-form");
@@ -18,6 +16,9 @@ const modalOverlay = document.querySelector(".modal-overlay");
 
 const ctaWaitlistInput = document.querySelector(".cta-waitlist-input");
 const waitlistFormInput = document.querySelector(".waitlist-input");
+
+const emailErrorModal = document.querySelector(".email-error-modal");
+console.log("This is the email error modal", emailErrorModal);
 
 // Event Listeners
 
@@ -41,12 +42,17 @@ navbarWaitlistForm.addEventListener("submit", async function (e) {
   const email = emailInput.value.trim();
 
   if (!email) {
-    alert("Please enter your email address");
+    // alert("Please enter your email address");
+
     emailInput.focus();
     return;
   }
 
   if (await window.submitToFirebase(email)) {
+    // remove navbar modal
+    navbarModal.classList.remove("modal-show");
+    navbarModalOverlay.classList.remove("modal-show");
+
     // Show success modal
     modalOverlay.classList.add("modal-show");
     waitlistModal.classList.add("modal-show");
@@ -64,8 +70,14 @@ waitlistForm.addEventListener("submit", async function (e) {
   const email = emailInput.value.trim();
 
   if (!email) {
-    alert("Please enter your email address");
+    // alert("Please enter your email address");
+    emailErrorModal.classList.add("active");
     emailInput.focus();
+
+    // Remove class after 3 seconds
+    setTimeout(() => {
+      emailErrorModal.classList.remove("active");
+    }, 3000);
     return;
   }
   if (await window.submitToFirebase(email)) {
@@ -86,8 +98,14 @@ ctaWaitlistForm.addEventListener("submit", async function (e) {
   const email = emailInput.value.trim();
 
   if (!email) {
-    alert("Please enter your email address");
+    // alert("Please enter your email address");
+    emailErrorModal.classList.add("active");
     emailInput.focus();
+
+    // Remove class after 3 seconds
+    setTimeout(() => {
+      emailErrorModal.classList.remove("active");
+    }, 3000);
     return;
   }
 
@@ -226,14 +244,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // small menu navigation
 const navLinks = document.querySelectorAll(".nav-menu li");
-console.log("all nav links:", navLinks);
 const hamburgerMenu = document.querySelector(".hamburger-menu");
-console.log(hamburgerMenu);
 const navMenu = document.querySelector(".nav-menu");
 
 // when hamburger menu is clicked open
 hamburgerMenu.addEventListener("click", () => {
-  navMenu.classList.add("active");
+  navMenu.classList.toggle("active");
 });
 
 // When nav link is clicked remove menu
@@ -248,4 +264,19 @@ document.addEventListener("click", (e) => {
   if (!navMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
     navMenu.classList.remove("active");
   }
+});
+
+window.addEventListener("mousemove", function (e) {
+  const floatImages = document.querySelectorAll(".float-img");
+  const mouseX = e.clientX / window.innerWidth;
+  const mouseY = e.clientY / window.innerHeight;
+
+  floatImages.forEach(function (img, index) {
+    const depth = (index + 1) * 0.05;
+    const moveX = (mouseX - 0.5) * depth * 40;
+    const moveY = (mouseY - 0.5) * depth * 40;
+
+    img.style.transform = `translate(${moveX}px, ${moveY}px) 
+                            translateY(${Math.sin(Date.now() / 1000) * 10}px)`;
+  });
 });
