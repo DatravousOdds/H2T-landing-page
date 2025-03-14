@@ -351,85 +351,81 @@
           <div class="brands-carousel">
             <div class="brands-scroll">
               <div class="brands-scroll-content">
-                <div class="brand-item">
-                  <img
-                    src="images/brands/jordan-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-                <div class="brand-item">
-                  <img
-                    src="images/brands/louisVuitton-removebg-preview.png"
-                    class="brand-img"
-                  />
+                <div class="brand-item reveal">
+                  <span class="adidas adidas-font">Adidas</span>
                 </div>
                 <div class="brand-item reveal">
-                  <img
-                    src="images/brands/fendi-removebg-preview.png"
-                    class="brand-img"
-                  />
+                  <span class="supreme supreme-font">Supreme</span>
+                </div>
+                <div class="brand-item reveal">
+                  <span class="off-white off-white-font">Off-white</span>
+                </div>
+                <div class="brand-item reveal">
+                  <span class="bape">Bape</span>
+                </div>
+                <div class="brand-item reveal">
+                  <span class="jordan">Jordan</span>
+                </div>
+                <div class="brand-item reveal">
+                  <span class="yeezy">Yeezy</span>
+                </div>
+                <div class="brand-item reveal">
+                  <span class="new-balance">New Balance</span>
+                </div>
+                <div class="brand-item reveal">
+                  <span class="puma">Puma</span>
+                </div>
+                <!-- Clothing Brands -->
+                <div class="brand-item">
+                  <span class="denim-tears">Denim Tears</span>
+                </div>
+                <div class="brand-item">
+                  <span class="chrome-heart">Chrome Heart</span>
+                </div>
+                <div class="brand-item">
+                  <span class="louis-vuitton">Louis Vuitton</span>
+                </div>
+                <div class="brand-item">
+                  <span class="gucci">Gucci</span>
+                </div>
+                <div class="brand-item">
+                  <span class="gallery-dept">Gallery-Dept</span>
+                </div>
+                <div class="brand-item">
+                  <span class="saint-laurent">Saint laurent</span>
+                </div>
+                <div class="brand-item">
+                  <span class="vlone">Vlone</span>
+                </div>
+                <div class="brand-item">
+                  <span class="revenge">Revenge</span>
+                </div>
+                <div class="brand-item">
+                  <span class="true-religion">True Religion</span>
+                </div>
+                <div class="brand-item">
+                  <span class="north-face">North Face</span>
+                </div>
+                <div class="brand-item">
+                  <span class="kaws">KAWS</span>
+                </div>
+                <div class="brand-item">
+                  <span class="human-made">Human Made</span>
+                </div>
+                <div class="brand-item">
+                  <span class="balenciaga">Balenciaga</span>
+                </div>
+                <div class="brand-item">
+                  <span class="fear-of-god">Fear Of God</span>
+                </div>
+                <div class="brand-item">
+                  <span class="von-dutch">Von Dutch</span>
+                </div>
+                <div class="brand-item">
+                  <span class="rick-owens">Rick Owens</span>
                 </div>
               </div>
-              <div class="brands-scroll-content">
-                <div class="brand-item">
-                  <img
-                    src="images/brands/jordan-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-                <div class="brand-item">
-                  <img
-                    src="images/brands/louisVuitton-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-                <div class="brand-item">
-                  <img
-                    src="images/brands/fendi-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-              </div>
-              <div class="brands-scroll-content">
-                <div class="brand-item">
-                  <img
-                    src="images/brands/jordan-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-                <div class="brand-item">
-                  <img
-                    src="images/brands/louisVuitton-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-                <div class="brand-item">
-                  <img
-                    src="images/brands/fendi-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-              </div>
-              <div class="brands-scroll-content">
-                <div class="brand-item">
-                  <img
-                    src="images/brands/jordan-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-                <div class="brand-item">
-                  <img
-                    src="images/brands/louisVuitton-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-                <div class="brand-item">
-                  <img
-                    src="images/brands/fendi-removebg-preview.png"
-                    class="brand-img"
-                  />
-                </div>
-              </div>
+
               <!-- Additional brand items-->
             </div>
           </div>
@@ -676,7 +672,7 @@
         collection,
         addDoc,
         getDocs,
-        deleteDoc
+        deleteDoc,
       } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
@@ -685,7 +681,7 @@
         storageBucket: "h2t-landing-page.firebasestorage.app",
         messagingSenderId: "361648021013",
         appId: "1:361648021013:web:04db1c37588871b0e8781c",
-        measurementId: "G-3KZ75T2MYM"
+        measurementId: "G-3KZ75T2MYM",
       };
 
       const app = initializeApp(firebaseConfig);
@@ -696,7 +692,7 @@
         try {
           await addDoc(collection(db, "waitlist"), {
             email: email,
-            date: new Date()
+            date: new Date(),
           });
           return true;
         } catch (e) {

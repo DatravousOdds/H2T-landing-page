@@ -47,6 +47,36 @@ h6 {
   --brand-blackToDark: linear-gradient(90deg, #000000 0%, #333333 100%);
 }
 
+.nike-font {
+  font-family: "Arial Black", "Helvetica Bold", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0px;
+}
+
+.supreme-font {
+  font-family: "Futura", "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.off-white-font {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+.adidas-font {
+  font-family: "AdihausDIN", Helvetica, Arial, sans-serif;
+}
+
+.bape-font {
+  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+}
+
+.revenge-font {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
 /* Scroll reveal animation */
 .reveal {
   opacity: 0;
@@ -417,6 +447,7 @@ header {
 }
 
 .item-stats {
+  width: 100%;
   gap: 9rem;
   justify-content: space-between;
   display: flex;
@@ -1188,10 +1219,24 @@ body.no-scroll {
 }
 
 @media (max-width: 1199px) and (min-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Small desktop and tablet landscape */
 @media (max-width: 991px) and (min-width: 769px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1376,6 +1421,14 @@ body.no-scroll {
 @media (max-width: 480px) {
   .features-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .float-img {
+    max-width: 150px; /* Smaller on mobile */
   }
 }
 /* Very small mobile phones */
