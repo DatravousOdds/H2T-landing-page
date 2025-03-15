@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H2T - The All-In-One Platform for Sneaker Enthusiasts</title>
+    <meta
+      name="description"
+      content="Head-To-Toes brings together every service sneaker resellers need—authentication, trading, listing, and selling—into one seamless platform."
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/854f8a6196.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="./images/logos/H2T_LogoB_Small-removebg-preview.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anta&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header/Navigation -->
+
+    <header>
+      <!-- Your navigation will go here -->
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img
+            src="images/logos/H2T_LogoB_Small-removebg-preview.png"
+            alt="H2T Logo"
+          />
+        </a>
+
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+        <button id="nav-waitlistBtn" class="btn-primary">join waitlist</button>
+
+        <!-- Hamburger menu icon-->
+        <div class="hamburger-menu">
+          <div class="icon-container">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <!-- Hero content will go here -->
+      <div class="hero-content plus-pattern-dark">
+        <div class="hero-content-left">
+          <h1 class="main-headline">
+            The All-In-One Platform for Sneaker and Vintage Enthusiasts
+          </h1>
+
+          <h2>
+            Buy, sell, authenticate, and restore - everything sneaker resellers
+            need in one place. Launching April 17th.
+          </h2>
+          <form action="#" id="waitlistForm" class="email-input">
+            <input
+              type="email"
+              class="waitlist-input"
+              placeholder="Your email here..."
+            />
+            <button type="submit" class="btn-waitlist">join waitlist</button>
+          </form>
+        </div>
+        <div class="hero-content-right floating-images">
+          <img
+            src="./images/hero/kaws.png"
+            alt=""
+            class="float-img float-img-4"
+          />
+          <img
+            src="./images/hero/skateboard.png"
+            alt=""
+            class="float-img float-img-3"
+          />
+          <img
+            src="./images/hero/supremeJacket.png"
+            alt=""
+            class="float-img float-img-2"
+          />
+          <img
+            src="./images/hero/travisscott.png"
+            alt=""
+            class="float-img float-img-1"
+          />
+        </div>
+      </div>
+
+      <!-- waitlist modal -->
+      <div class="modal-overlay">
+        <div class="waitlist-modal">
+          <div class="modal-content">
+            <button class="close-modal">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="completed-icon">
+              <i class="fa-solid fa-envelope-circle-check"></i>
+            </div>
+
+            <div class="message">
+              <h3>You're on the list</h3>
+              <p>
+                Thank you for joining the H2T waitlist! We'll notify you when we
+                launch on April 17th.
+              </p>
+              <div class="socials">
+                <p class="follow-text">Follow us for updates:</p>
+                <div class="social-icons">
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- waitlist modal END -->
+
+      <!-- waitlist modal for navbar -->
+      <div class="navbar-modal-overlay">
+        <div class="waitlist-navbar-modal">
+          <div class="modal-content">
+            <button class="navbar-close-btn">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="completed-icon">
+              <i class="fa-solid fa-envelope-circle-check"></i>
+            </div>
+
+            <div class="message">
+              <h3>You're on the list</h3>
+              <p>
+                Join the growing waitlist of
+                <span id="waitlist-count"></span> people and our team will reach
+                out to you as soon as possible
+              </p>
+              <form id="navbar-waitlist-form" class="navbar-waitlist-form">
+                <input
+                  type="email"
+                  class="navbar-email-input"
+                  id="navbar-email-input"
+                  placeholder="Your email address"
+                />
+                <button
+                  type="submit"
+                  id="request-access-btn"
+                  class="request-access-btn"
+                >
+                  Request Access
+                </button>
+              </form>
+              <div class="socials">
+                <p class="follow-text">Follow us for updates:</p>
+                <div class="social-icons">
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href="" class="social-link">
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- waitlist modal END -->
+    </section>
+
+    <!-- Product Categories Section -->
+    <section id="products" class="product-categories">
+      <!-- Your product categories will go here -->
+      <div class="container">
+        <h2 class="section-header autoShow">
+          Specializing in Sneaker & Vintage Streetwear
+        </h2>
+        <div class="separator"></div>
+        <p class="section-subheader autoShow">
+          All the tools you need for collectors and re-sellers
+        </p>
+        <div class="products-grid">
+          <!-- Product Card 1 -->
+          <div class="product-card reveal">
+            <div class="product-image-container">
+              <div class="liked">
+                <i class="fa-regular fa-heart"></i>
+              </div>
+              <img
+                src="./images/products/kaws.jpeg"
+                alt=""
+                class="product-img"
+              />
+            </div>
+            <div class="product-details">
+              <p class="product-name">
+                KAWS Companion Flayed & Companion Open Edition Vinyl Figure
+              </p>
+              <p class="product-description">Blush Set</p>
+            </div>
+            <div class="product-pricing">
+              <p class="product-price">$620</p>
+            </div>
+            <div class="item-stats">
+              <div class="value-price">Value Price: $607</div>
+              <div class="price-change up">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                +$1
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 2-->
+          <div class="product-card reveal">
+            <div class="product-image-container">
+              <div class="liked">
+                <i class="fa-regular fa-heart"></i>
+              </div>
+              <img
+                src="./images/products/supremeBowl.jpeg"
+                alt=""
+                class="product-img"
+              />
+              <div class="price-change up">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                +$1
+              </div>
+            </div>
+            <div class="product-details">
+              <p class="product-name">
+                Supreme Longevity Soup Set (Bowl and Spoon)
+              </p>
+              <p class="product-description">White</p>
+            </div>
+            <div class="product-pricing">
+              <p class="product-price">$61</p>
+            </div>
+            <div class="item-stats">
+              <div class="value-price">Value Price: $61</div>
+              <div class="price-change up">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                +$25
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 3-->
+          <div class="product-card reveal">
+            <div class="product-image-container">
+              <div class="liked">
+                <i class="fa-regular fa-heart"></i>
+              </div>
+              <img
+                src="./images/products/ppblue.jpeg"
+                alt=""
+                class="product-img"
+              />
+              <div class="price-change down">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+                -$10
+              </div>
+            </div>
+            <div class="product-details">
+              <p class="product-name">Nike SB Dunk Low</p>
+              <p class="product-description">The Powerpuff Girls Bubbles</p>
+            </div>
+            <div class="product-pricing">
+              <p class="product-price">$257</p>
+              <span class="discount">20% OFF</span>
+            </div>
+            <div class="item-stats">
+              <div class="value-price">Value Price: $320</div>
+              <div class="price-change down">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+                -$25
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 4-->
+          <div class="product-card reveal">
+            <div class="product-image-container">
+              <div class="liked">
+                <i class="fa-regular fa-heart"></i>
+              </div>
+              <img
+                src="./images/products/revengeHoodie.jpeg"
+                alt=""
+                class="product-img"
+              />
+              <div class="price-change down">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+                -$15
+              </div>
+            </div>
+            <div class="product-details">
+              <p class="product-name">Revenge XXXTentacion Kill</p>
+              <p class="product-description">Black/White</p>
+            </div>
+            <div class="product-pricing">
+              <p class="product-price">$275</p>
+            </div>
+            <div class="item-stats">
+              <div class="value-price">Value Price: $396</div>
+              <div class="price-change up">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                +$126
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="brands-subsection">
+          <!-- Brands carousel will go here -->
+          <h2 class="section-header autoShow">Brands We Support</h2>
+          <div class="separator"></div>
+          <div class="brands-carousel">
+            <div class="brands-scroll">
+              <div class="brand-item item1 reveal">
+                <span class="adidas adidas-font">Adidas</span>
+              </div>
+              <div class="brand-item item2 reveal">
+                <span class="supreme supreme-font">Supreme</span>
+              </div>
+              <div class="brand-item item3 reveal">
+                <span class="off-white off-white-font">Off-white</span>
+              </div>
+              <div class="brand-item item4 reveal">
+                <span class="bape">Bape</span>
+              </div>
+              <div class="brand-item item5 reveal">
+                <span class="jordan">Jordan</span>
+              </div>
+              <div class="brand-item item6 reveal">
+                <span class="yeezy">Yeezy</span>
+              </div>
+              <div class="brand-item item7 reveal">
+                <span class="new-balance">New Balance</span>
+              </div>
+              <div class="brand-item item8 reveal">
+                <span class="puma">Puma</span>
+              </div>
+
+              <!-- Additional brand items-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="services" class="features">
+      <!-- Feature cards will go here -->
+      <div class="container">
+        <h2 class="section-header autoShow">
+          The Complete Platform for Sneaker Resellers
+        </h2>
+        <div class="separator"></div>
+        <p class="section-subheader autoShow">
+          Say goodbye to multiple apps and fragmented experiences.Head-To-Toe
+          beings together every service you need-authentication, trading,
+          listing, and selling-into one seamless platform.
+        </p>
+        <!-- Features-->
+        <div class="features-container">
+          <!-- Feature 1-->
+          <div class="feature-card autoShow">
+            <div class="feature-icon"><i class="fa-solid fa-soap"></i></div>
+            <div class="feature-title">Cleaning Services</div>
+            <p class="feature-text">
+              We provide professional sneaker cleaning services designed to
+              bring your favorite kicks back to life. Each pair is meticulously
+              restored to the best of our ability, ensuring your sneakers look
+              their best.
+            </p>
+          </div>
+          <div class="feature-card autoShow">
+            <div class="feature-icon">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <div class="feature-title">Fast Shipping</div>
+            <p class="feature-text">
+              We pride ourselves on quick, reliable shipping to get your
+              purchases to you as soon as possible. Whether it's freshly cleaned
+              sneakers, vintage collectibles, or other unique items, our
+              efficient processing system ensures minimal transit time.
+            </p>
+          </div>
+          <div class="feature-card autoShow">
+            <div class="feature-icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <div class="feature-title">Trading</div>
+            <p class="feature-text">
+              Our seamless trading platform connects enthusiasts looking to
+              exchange their valuable items. Trade sneakers, vintage
+              collectibles, and rare finds with other passionate collectors in
+              our trusted marketplace.
+            </p>
+          </div>
+          <div class="feature-card autoShow">
+            <div class="feature-icon">
+              <i class="fa-solid fa-fingerprint"></i>
+            </div>
+            <div class="feature-title">Authentication</div>
+            <p class="feature-text">
+              Our expert authentication process verifies the legitimacy of items
+              in our marketplace, giving you confidence in every transaction. We
+              carefully examine each product using proven techniques and
+              industry knowledge.
+            </p>
+          </div>
+          <div class="feature-card autoShow">
+            <div class="feature-icon">
+              <i class="fa-solid fa-sack-dollar"></i>
+            </div>
+            <div class="feature-title">Low Fees</div>
+            <p class="feature-text">
+              We believe in transparent pricing and keeping more money in your
+              pocket. Our fee structure is designed to be competitive and
+              straightforward, making our platform an affordable choice for
+              buyers and sellers alike.
+            </p>
+          </div>
+          <div class="feature-card autoShow">
+            <div class="feature-icon">
+              <i class="fa-solid fa-money-bill-transfer"></i>
+            </div>
+            <div class="feature-title">Sell To Us</div>
+            <p class="feature-text">
+              Got unwanted sneakers or collectibles? Skip the hassle of private
+              sales and sell directly to us for quick cash. Our Sell-to-Us
+              service offers a convenient, reliable way to convert your items
+              into immediate funds.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email Input Error Modal -->
+      <div class="email-error-modal">
+        <div class="error-modal-content">
+          <div class="error-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <div class="error-message">Please enter your email address</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <!-- About content will go here -->
+      <div class="container">
+        <div class="section-header-wrapper parallax-layer" data-speed="0.1">
+          <h2 class="section-header autoShow">About Head-To-Toe</h2>
+          <div class="separator"></div>
+          <p class="section-subheader autoShow">
+            Your trusted destination for authentic sneakers, apparel, and
+            accessories at affordable prices.
+          </p>
+        </div>
+
+        <!-- Two Column Layout -->
+        <div class="content-wrapper autoShow">
+          <div class="image-grid parallax-layer" data-speed="0.3">
+            <!-- Image Gallery Here -->
+            <div class="img-container">
+              <img src="./images/products/arshoes.jpeg" alt="" />
+              <div class="img-overlay">
+                <p>1000+ authentic products</p>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="./images/products/chuckydunks.jpeg" alt="" />
+              <div class="img-overlay">
+                <p>Exclusive collections</p>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="./images/products/offwhitedunks.jpeg" alt="" />
+              <div class="img-overlay">
+                <p>Premium sneakers</p>
+              </div>
+            </div>
+            <div class="img-container">
+              <img src="./images/products/apparel.jpeg" alt="" />
+              <div class="img-overlay">
+                <p>Quality apparel</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content parallax-layer" data-speed="0.2">
+          <h3 class="autoShow">Our Mission</h3>
+          <p class="autoShow">
+            At Head-To-Toe, we're passionate about bringing you authentic
+            footwear and apparel at affordable prices. Our platform integrates
+            all the essentials sneaker resellers need: listing, trading,
+            authentication, and restoration services in one convenient place.
+          </p>
+
+          <div class="features autoShow">
+            <div class="feature-item">
+              <i class="fa-solid fa-check-circle"></i>
+              <div>
+                <h4>Authenticity Guaranteed</h4>
+                <p>
+                  Every item verified for 100% authenticity or your money back
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-check-circle"></i>
+              <div>
+                <h4>Premium Restoration Services</h4>
+                <p>
+                  Professional sneaker cleaning and restoration at competitive
+                  rates.
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-check-circle"></i>
+              <div>
+                <h4>Competitive Pricing</h4>
+                <p>
+                  Access to new, reconditioned and used items at the lowest fees
+                  possible
+                </p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fa-solid fa-check-circle"></i>
+              <div>
+                <h4>Seller Platform</h4>
+                <p>
+                  Sell your products to us directly through our easy-to-use
+                  platform
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-container"></div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <!-- Call-to-action content will go here -->
+      <div class="container">
+        <h2 class="section-header">Be Ready for Launch</h2>
+        <p class="section-subheader">
+          Signup now to receive exclusive access and special offers
+        </p>
+
+        <div class="email-input">
+          <form action="#" id="cta-waitlistForm" class="email-input">
+            <input
+              type="email"
+              class="cta-waitlist-input"
+              placeholder="Your email here..."
+            />
+            <button type="submit" class="btn-waitlist">join waitlist</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <!-- Footer content will go here -->
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+        getDocs,
+        deleteDoc
+      } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
+        authDomain: "h2t-landing-page.firebaseapp.com",
+        projectId: "h2t-landing-page",
+        storageBucket: "h2t-landing-page.firebasestorage.app",
+        messagingSenderId: "361648021013",
+        appId: "1:361648021013:web:04db1c37588871b0e8781c",
+        measurementId: "G-3KZ75T2MYM"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const analytics = getAnalytics(app);
+
+      window.submitToFirebase = async function (email) {
+        try {
+          await addDoc(collection(db, "waitlist"), {
+            email: email,
+            date: new Date()
+          });
+
+          // Update count after submission
+          await window.getWaitlistCount();
+
+          return true;
+        } catch (e) {
+          console.error("error adding document:", e);
+          return false;
+        }
+      };
+
+      // returns waitlist count
+      window.getWaitlistCount = async function () {
+        try {
+          const waitlistRef = collection(db, "waitlist");
+          const querySnapshot = await getDocs(waitlistRef);
+          const count = querySnapshot.size;
+
+          document.querySelector("#waitlist-count").textContent = count;
+        } catch (error) {
+          console.error("Error occured when fetching waitlist count", error);
+          return 0;
+        }
+      };
+
+      // get count
+      window.addEventListener("DOMContentLoaded", function () {
+        window.getWaitlistCount();
+      });
+    </script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

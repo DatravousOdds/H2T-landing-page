@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "h2t-landing-page"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "h2t-landing-page-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
