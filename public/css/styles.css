@@ -699,9 +699,9 @@ header {
   /* background-color: red; */
   border-radius: 6px;
   position: absolute;
-  left: max(calc(200px * 8), 100%);
+  left: max(calc(100px * 8), 100%);
   animation: scrollLeft;
-  animation-duration: 30s;
+  animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
