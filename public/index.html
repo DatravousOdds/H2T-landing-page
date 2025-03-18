@@ -277,7 +277,7 @@
               </div>
 
               <div class="message">
-                <h3>You're on the list</h3>
+                <h3>Request Access</h3>
                 <p>
                   Join the growing waitlist of
                   <span id="waitlist-count"></span> people and our team will
@@ -524,7 +524,7 @@
           </h2>
           <div class="separator"></div>
           <p class="section-subheader autoShow">
-            Say goodbye to multiple apps and fragmented experiences.Head-To-Toe
+            Say goodbye to multiple apps and fragmented experiences. Head-To-Toe
             beings together every service you need-authentication, trading,
             listing, and selling-into one seamless platform.
           </p>
@@ -824,7 +824,9 @@
           <h3>Contact</h3>
           <p>
             Have questions?
-            <a href="mailto:info@headtotoe.com">info@headtotoe.com</a>
+            <a href="mailto:officialhead2toeee@gmail.com"
+              >officialhead2toeee@gmail.com</a
+            >
           </p>
         </div>
       </div>
@@ -839,7 +841,7 @@
         collection,
         addDoc,
         getDocs,
-        deleteDoc
+        deleteDoc,
       } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
@@ -848,7 +850,7 @@
         storageBucket: "h2t-landing-page.firebasestorage.app",
         messagingSenderId: "361648021013",
         appId: "1:361648021013:web:04db1c37588871b0e8781c",
-        measurementId: "G-3KZ75T2MYM"
+        measurementId: "G-3KZ75T2MYM",
       };
 
       const app = initializeApp(firebaseConfig);
@@ -859,7 +861,7 @@
         try {
           await addDoc(collection(db, "waitlist"), {
             email: email,
-            date: new Date()
+            date: new Date(),
           });
 
           // Update count after submission
