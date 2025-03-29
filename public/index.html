@@ -31,7 +31,7 @@
     />
     <meta
       property="og:image"
-      content="https://h2tlaunch.com/images/logos/H2T_LogoB_Small-removebg-preview.png"
+      content="https://h2tlaunch.com/images/logos/H2T_LogoB_Small.png"
     />
 
     <!-- Twitter -->
@@ -47,7 +47,7 @@
     />
     <meta
       property="twitter:image"
-      content="https://h2tlaunch.com/images/logos/H2T_LogoB_Small-removebg-preview.png"
+      content="https://h2tlaunch.com/images/logos/H2T_LogoB_Small.png"
     />
 
     <!-- Canonical URL -->
@@ -94,7 +94,7 @@
         "@type": "Organization",
         "name": "Head-To-Toe",
         "url": "https://h2tlaunch.com/",
-        "logo": "https://h2tlaunch.com/images/logos/H2T_LogoB_Small-removebg-preview.png",
+        "logo": "https://h2tlaunch.com/images/logos/H2T_LogoB_Small.png",
         "sameAs": [
           "https://www.instagram.com/headdd2toeee/",
           "https://www.tiktok.com/@head2toee"
@@ -841,7 +841,7 @@
         collection,
         addDoc,
         getDocs,
-        deleteDoc,
+        deleteDoc
       } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
@@ -850,7 +850,7 @@
         storageBucket: "h2t-landing-page.firebasestorage.app",
         messagingSenderId: "361648021013",
         appId: "1:361648021013:web:04db1c37588871b0e8781c",
-        measurementId: "G-3KZ75T2MYM",
+        measurementId: "G-3KZ75T2MYM"
       };
 
       const app = initializeApp(firebaseConfig);
@@ -861,7 +861,7 @@
         try {
           await addDoc(collection(db, "waitlist"), {
             email: email,
-            date: new Date(),
+            date: new Date()
           });
 
           // Update count after submission
