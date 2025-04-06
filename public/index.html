@@ -842,9 +842,7 @@
 
     <!-- JavaScript -->
     <script type="module">
-      import { onDocumentCreated } from "'firebase-functions/v2/firestore'";
-      import { defineString } from "'firebase-functions/params'";
-      import { Twilio } from "twilio";
+      import { config, https } from "firebase-functions";
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
       import {
@@ -854,6 +852,11 @@
         getDocs,
         deleteDoc
       } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+      import {
+        getFunctions,
+        httpsCallable
+      } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
+
       const firebaseConfig = {
         apiKey: "AIzaSyCF-6gAf4__SU0wxPQ0Iu3KQZHzy_H1abs",
         authDomain: "h2t-landing-page.firebaseapp.com",
@@ -864,20 +867,14 @@
         measurementId: "G-3KZ75T2MYM"
       };
 
+      dotenv.config();
+
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       const analytics = getAnalytics(app);
+      const functions = getFunctions(app);
 
       admin.initializeApp();
-
-      // init client with credentials
-      const twilioAccountSid = defineString("TWILIO_ACCOUNT_SID");
-      const twilioAuthToken = defineString("TWILIO_AUTH_TOKEN");
-      const twilioPhoneNumber = defineString("TWILIO_PHONE_NUMBER");
-      const notificationPhoneNumber = defineString("NOTIFICATION_PHONE_NUMBER");
-
-      console.log(twilioAuthToken);
-      console.log(twilioPhoneNumber);
 
       window.submitToFirebase = async function (email) {
         try {
