@@ -99,10 +99,18 @@
           "https://www.instagram.com/headdd2toeee/",
           "https://www.tiktok.com/@head2toee"
         ],
-        "description": "The All-In-One Platform for Sneaker Enthusiasts and Resellers",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "US"
+        "description": "The All-In-One Platform for Sneaker Enthusiasts and Resellers"
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Sneaker Authentication and Reselling Platform",
+        "provider": {
+          "@type": "Organization",
+          "name": "Head-To-Toe"
         },
         "offers": {
           "@type": "Offer",
@@ -856,6 +864,18 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       const analytics = getAnalytics(app);
+      const functions = require("firebase-functions");
+      const admin = require("firebase-admin");
+      const twilio = require("twilio");
+
+      admin.initializeApp();
+
+      // init client with credentials
+      const twilioAccountSid = functions.config().twilio.account_sid;
+      const twilioAuthToken = functions.config().twilio.auth_token;
+      const twilioPhoneNumber = functions.config().twilio.phone_number;
+      const notificationPhoneNumber =
+        functions.config().twilio.notification_number;
 
       window.submitToFirebase = async function (email) {
         try {

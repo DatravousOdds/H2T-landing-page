@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       window.scrollTo({
         top: targetPosition,
-        behavior: "smooth",
+        behavior: "smooth"
       });
     }
   }
