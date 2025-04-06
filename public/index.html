@@ -842,6 +842,9 @@
 
     <!-- JavaScript -->
     <script type="module">
+      import { onDocumentCreated } from "'firebase-functions/v2/firestore'";
+      import { defineString } from "'firebase-functions/params'";
+      import { Twilio } from "twilio";
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
       import {
@@ -864,18 +867,17 @@
       const app = initializeApp(firebaseConfig);
       const db = getFirestore(app);
       const analytics = getAnalytics(app);
-      const functions = require("firebase-functions");
-      const admin = require("firebase-admin");
-      const twilio = require("twilio");
 
       admin.initializeApp();
 
       // init client with credentials
-      const twilioAccountSid = functions.config().twilio.account_sid;
-      const twilioAuthToken = functions.config().twilio.auth_token;
-      const twilioPhoneNumber = functions.config().twilio.phone_number;
-      const notificationPhoneNumber =
-        functions.config().twilio.notification_number;
+      const twilioAccountSid = defineString("TWILIO_ACCOUNT_SID");
+      const twilioAuthToken = defineString("TWILIO_AUTH_TOKEN");
+      const twilioPhoneNumber = defineString("TWILIO_PHONE_NUMBER");
+      const notificationPhoneNumber = defineString("NOTIFICATION_PHONE_NUMBER");
+
+      console.log(twilioAuthToken);
+      console.log(twilioPhoneNumber);
 
       window.submitToFirebase = async function (email) {
         try {
