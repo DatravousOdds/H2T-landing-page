@@ -35,11 +35,26 @@ exports.sendWaitlistNotification = functions.https.onCall(
       if (!email) {
         throw new Error("No email provided");
       }
+
+      // send text message
+      await twilioClient.messages.create({
+        body: `New waitlist signup ${email}`,
+        from: twilioPhoneNumber,
+        to: notificationPhoneNumber
+      });
+
+      console.log(`Sent notification for new signup: ${email}`);
+      return { success: true, message: `Norification sent for ${email}` };
     } catch (error) {
-      console.log("Error when trying to send SMS message");
+      console.error("Error when trying to send SMS message");
+      return { success: false, error: error.message };
     }
   }
 );
+
+exports.sendSMSOnNewWaitlistEntry = functions.firestore
+  .onDocumentCreated("")
+  .onCreate(async);
 
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
